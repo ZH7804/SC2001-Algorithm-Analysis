@@ -82,7 +82,7 @@ Hybrid Sort  : [--------------------------------- 226.4M] -> 49.42s CPU time
 ### 1. Theoretical Model
 The overall time complexity model for Hybrid Merge Sort is given by:
 
-$$	ext{Time}(n, S) = c_{	ext{merge}} \cdot n \log_2\left(rac{n}{S}
+$$	ext{Time}(n, S) = c_{text{merge}} \cdot n \log_2\left(frac{n}{S}
 ight) + c_{	ext{insertion}} \cdot n S$$
 
 Where:
