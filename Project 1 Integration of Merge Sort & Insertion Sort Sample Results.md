@@ -26,7 +26,7 @@ Evaluates how algorithm performance scales as array size $n$ grows by powers of 
 | **1,000,000** | 20,219,827 | 3.500s | ~$12.5	imes$ | Linearithmic |
 | **10,000,000** | 226,422,815 | 49.578s | ~$14.2	imes$ | Linearithmic |
 
-* **Analysis:** Comparisons scale cleanly in line with $O(n \log n)$. Execution time exhibits expected super-linear growth, with slight cache-miss penalties visible as dataset size exceeds CPU L3 cache capacity at $n = 10,000,000$.
+* **Analysis:** Comparisons scale cleanly in line with $O(n \log n)$. Execution time exhibits expected super-linear growth, with slight cache-miss penalties visible as dataset size increases
 
 ---
 
@@ -42,22 +42,6 @@ Analyzes the effect of varying threshold $S$ on a fixed array size of 1,000,000 
 | **64** | 29,907,159 | 4.266s | 113.3% | Insertion $O(S^2)$ Creep |
 | **128** | 44,247,653 | 5.703s | 151.4% | Algorithmic Bottleneck |
 | **500** | 133,834,667 | 14.734s | 391.2% | Severely Degraded ($O(S^2)$) |
-
-```
-CPU Time (s) vs. Threshold (S) [U-Shaped Curve]
-
-Time (s)
-  15.00 |                                                  * (14.734s)
-  12.00 |
-   9.00 |
-   6.00 |                                           * (5.703s)
-   4.50 |                                    * (4.266s)
-   3.00 |   * (3.766s)   * (3.531s)   * (3.469s) [OPTIMAL]
-        +------------------------------------------------------------> S
-            S=2          S=5         S=16     S=64    S=128    S=500
-```
-
----
 
 ### Part (c)(iii): Optimal Threshold across Variable $n$
 
@@ -98,14 +82,15 @@ Hybrid Sort  : [--------------------------------- 226.4M] -> 49.42s CPU time
 ### 1. Theoretical Model
 The overall time complexity model for Hybrid Merge Sort is given by:
 
-$$	ext{Time}(n, S) = c_{	ext{merge}} \cdot n \log_2\left(rac{n}{S}ight) + c_{	ext{insertion}} \cdot n S$$
+$$	ext{Time}(n, S) = c_{	ext{merge}} \cdot n \log_2\left(rac{n}{S}
+ight) + c_{	ext{insertion}} \cdot n S$$
 
 Where:
 * $c_{	ext{merge}}$ represents recursion overhead, stack allocation, array slicing, and merge operations per level.
 * $c_{	ext{insertion}}$ represents the cycle cost per element swap/shift in Insertion Sort.
 
 ### 2. Why $S = 16$ Outperforms $S = 2$ and Classic Sort
-* **Function Call Stack Elimination:** Bypassing the bottom $\log_2(16) = 4$ layers of recursion removes $2^4 = 16	imes$ sub-problem stack overheads across the entire array.
+* **Function Call Stack Elimination:** Bypassing the bottom $\log_2(16) = 4$ layers of recursion removes $2^4 = 16 times$ sub-problem stack overheads across the entire array.
 * **L1 Cache Locality:** Sub-arrays of size $S \le 16$ fit entirely within L1 data cache lines (~64 bytes), allowing Insertion Sort's inner loops to run almost exclusively in registers and cache.
 * **Instruction Efficiency:** Lower instruction count per element shifting operation in Insertion Sort offsets the theoretical $O(S^2)$ increase in comparisons.
 
