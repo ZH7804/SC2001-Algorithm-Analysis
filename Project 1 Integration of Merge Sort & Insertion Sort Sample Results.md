@@ -34,7 +34,7 @@ Evaluates how algorithm performance scales as array size $n$ grows by powers of 
 
 Analyzes the effect of varying threshold $S$ on a fixed array size of 1,000,000 elements.
 
-| Threshold ($S$) | Key Comparisons | CPU Time (s) | Relative Time-Taken vs $S=2$ | Performance Trajectory |
+| Threshold ($S$) | Key Comparisons | CPU Time (s) | Relative Time-Taken vs $S=2$ |
 | :--- | :--- | :--- | :--- |
 | **2** | 18,675,091 | 3.766s | 100.0% |
 | **5** | 18,727,658 | 3.531s | 93.8% |
