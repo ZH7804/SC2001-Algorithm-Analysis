@@ -35,13 +35,13 @@ Evaluates how algorithm performance scales as array size $n$ grows by powers of 
 Analyzes the effect of varying threshold $S$ on a fixed array size of 1,000,000 elements.
 
 | Threshold ($S$) | Key Comparisons | CPU Time (s) | Relative Time-Taken vs $S=2$ | Performance Trajectory |
-| :--- | :--- | :--- | :--- | :--- |
-| **2** | 18,675,091 | 3.766s | 100.0% | Recursion Overhead Dominated |
-| **5** | 18,727,658 | 3.531s | 93.8% | Transitioning |
-| **16** | **20,220,552** | **3.469s** | **92.1%** | **Optimal Sweet Spot** |
-| **64** | 29,907,159 | 4.266s | 113.3% | Insertion $O(S^2)$ Creep |
-| **128** | 44,247,653 | 5.703s | 151.4% | Algorithmic Bottleneck |
-| **500** | 133,834,667 | 14.734s | 391.2% | Severely Degraded ($O(S^2)$) |
+| :--- | :--- | :--- | :--- |
+| **2** | 18,675,091 | 3.766s | 100.0% |
+| **5** | 18,727,658 | 3.531s | 93.8% |
+| **16** | **20,220,552** | **3.469s** | **92.1%** |
+| **64** | 29,907,159 | 4.266s | 113.3% |
+| **128** | 44,247,653 | 5.703s | 151.4% |
+| **500** | 133,834,667 | 14.734s | 391.2% |
 
 ### Part (c)(iii): Optimal Threshold across Variable $n$
 
@@ -91,7 +91,6 @@ Where:
 
 ### 2. Why $S = 16$ Outperforms $S = 2$ and Classic Sort
 * **Function Call Stack Elimination:** Bypassing the bottom $\log_2(16) = 4$ layers of recursion removes $2^4 = 16 times$ sub-problem stack overheads across the entire array.
-* **L1 Cache Locality:** Sub-arrays of size $S \le 16$ fit entirely within L1 data cache lines (~64 bytes), allowing Insertion Sort's inner loops to run almost exclusively in registers and cache.
 * **Instruction Efficiency:** Lower instruction count per element shifting operation in Insertion Sort offsets the theoretical $O(S^2)$ increase in comparisons.
 
 ---
