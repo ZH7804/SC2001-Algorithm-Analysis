@@ -79,16 +79,7 @@ Hybrid Sort  : [--------------------------------- 226.4M] -> 49.42s CPU time
 
 ## Mathematical & System Overhead Breakdown
 
-### 1. Theoretical Model
-The overall time complexity model for Hybrid Merge Sort is given by:
-
-$$\text{Time}(n, S) = c_{\text{merge}} \cdot n \log_2(n/S) + c_{\text{insertion}} \cdot n S$$
-
-Where:
-* $c_{\text{merge}}$ represents recursion overhead, stack allocation, array slicing, and merge operations per level.
-* $c_{\text{insertion}}$ represents the cycle cost per element swap/shift in Insertion Sort.
-
-### 2. Why $S = 16$ Outperforms $S = 2$ and Classic Sort
+### Why $S = 16$ Outperforms $S = 2$ and Classic Sort
 * **Function Call Stack Elimination:** Bypassing the bottom $\log_2(16) = 4$ layers of recursion removes $2^4 = 16 times$ sub-problem stack overheads across the entire array.
 * **Instruction Efficiency:** Lower instruction count per element shifting operation in Insertion Sort offsets the theoretical $O(S^2)$ increase in comparisons.
 
