@@ -21,10 +21,10 @@ Evaluates how algorithm performance scales as array size $n$ grows by powers of 
 | Input Size ($n$) | Key Comparisons | CPU Time (s) | Scaling Factor (Time) | Theoretical $O(n \log n)$ |
 | :--- | :--- | :--- | :--- | :--- |
 | **1,000** | 10,453 | 0.000s | Baseline | Linearithmic |
-| **10,000** | 127,132 | 0.031s | ~$31	imes$ | Linearithmic |
-| **100,000** | 1,639,667 | 0.281s | ~$9.1	imes$ | Linearithmic |
-| **1,000,000** | 20,219,827 | 3.500s | ~$12.5	imes$ | Linearithmic |
-| **10,000,000** | 226,422,815 | 49.578s | ~$14.2	imes$ | Linearithmic |
+| **10,000** | 127,132 | 0.031s | 31	times | Linearithmic |
+| **100,000** | 1,639,667 | 0.281s | 9.1 times | Linearithmic |
+| **1,000,000** | 20,219,827 | 3.500s | 12.5	times | Linearithmic |
+| **10,000,000** | 226,422,815 | 49.578s | 14.2	times | Linearithmic |
 
 * **Analysis:** Comparisons scale cleanly in line with $O(n \log n)$. Execution time exhibits expected super-linear growth, with slight cache-miss penalties visible as dataset size increases
 
