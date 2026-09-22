@@ -1,4 +1,4 @@
-# Dijkstra's Algorithm: Adjacency Matrix + Array vs. Adjacency List + Min-Heap
+#Project 2: The Dijkstra’s Algorithm
 
 An empirical performance analysis comparing two implementations of **Dijkstra's Algorithm**: a straightforward version using an **Adjacency Matrix** with an **array-based priority queue**, against a faster version using an **Array of Adjacency Lists** with a **self-implemented binary Min-Heap**.
 
