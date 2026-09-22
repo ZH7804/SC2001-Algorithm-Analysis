@@ -1,4 +1,4 @@
-# Project 2: The Dijkstra’s Algorithm
+# Dijkstra’s Algorithm Performance Analysis
 
 An empirical performance analysis comparing two implementations of **Dijkstra's Algorithm**: a straightforward version using an **Adjacency Matrix** with an **array-based priority queue**, against a faster version using an **Array of Adjacency Lists** with a **self-implemented binary Min-Heap**.
 
